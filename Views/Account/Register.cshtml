@@ -1,0 +1,224 @@
+﻿@using LMSProjectAUTH.Application.ViewModel.Account
+@model UserRegistrationViewModel
+
+
+<div class="row container d-flex justify-content-center">
+    <div class="card m-2 justify-content-center">
+    <div class="card-header m-2 ">
+        <div class="row">
+            <div class="col">
+                @* <h2 class="mt-3">Books</h2> *@
+                    <h2 class="mb-3 text-center">Registration </h2>
+            </div>
+
+
+            
+        </div>
+
+
+    </div>
+        <div class="card-body d-flex align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-12">
+                    <div class="border rounded p-4 shadow ">
+                    <h2 class="mb-4 text-center">Register @Model.UserType</h2>
+                        <form asp-action="Register" method="post" class="needs-validation mt-3 ">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                        <input type="hidden" asp-for="UserType" />
+
+                        <!-- User Name -->
+                        <div class="row mb-3">
+                            <label asp-for="UserName" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.UserName)
+                                @if (ViewData.ModelState["UserName"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Name -->
+                        <div class="row mb-3">
+                            <label asp-for="Name" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.Name)
+                                @if (ViewData.ModelState["Name"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- NID -->
+                        <div class="row mb-3">
+                            <label asp-for="NID" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.NID)
+                                @if (ViewData.ModelState["NID"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="NID" class="form-control" />
+                                <span asp-validation-for="NID" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="row mb-3">
+                            <label asp-for="Address" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.Address)
+                                @if (ViewData.ModelState["Address"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="Address" class="form-control" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="row mb-3">
+                            <label asp-for="Email" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.Email)
+                                @if (ViewData.ModelState["Email"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="row mb-3">
+                            <label asp-for="Phone" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.Phone)
+                                @if (ViewData.ModelState["Phone"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="Phone" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Librarian Number (for Librarian) -->
+                        @if (Model.UserType == "Librarian")
+                        {
+                            <div class="row mb-3">
+                                <label asp-for="LibrarianNo" class="col-sm-4 col-form-label">
+                                    @Html.LabelFor(m => m.LibrarianNo)
+                                    @if (ViewData.ModelState["LibrarianNo"]?.Errors.Count > 0)
+                                    {
+                                        <span class="text-danger">*</span>
+                                    }
+                                </label>
+                                <div class="col-sm-8">
+                                    <input asp-for="LibrarianNo" class="form-control" readonly />
+                                    <span asp-validation-for="LibrarianNo" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label asp-for="HiredOn" class="col-sm-4 col-form-label">
+                                    @Html.LabelFor(m => m.HiredOn)
+                                    @if (ViewData.ModelState["HiredOn"]?.Errors.Count > 0)
+                                    {
+                                        <span class="text-danger">*</span>
+                                    }
+                                </label>
+                                <div class="col-sm-8">
+                                    <input asp-for="HiredOn" type="date" class="form-control" />
+                                    <span asp-validation-for="HiredOn" class="text-danger"></span>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Member Number (for Member) -->
+                        @if (Model.UserType == "Member")
+                        {
+                            <div class="row mb-3">
+                                <label asp-for="MemberNo" class="col-sm-4 col-form-label">
+                                    @Html.LabelFor(m => m.MemberNo)
+                                    @if (ViewData.ModelState["MemberNo"]?.Errors.Count > 0)
+                                    {
+                                        <span class="text-danger">*</span>
+                                    }
+                                </label>
+                                <div class="col-sm-8">
+                                    <input asp-for="MemberNo" class="form-control" readonly />
+                                    <span asp-validation-for="MemberNo" class="text-danger"></span>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Password -->
+                        <div class="row mb-3">
+                            <label asp-for="Password" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.Password)
+                                @if (ViewData.ModelState["Password"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="Password" type="password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="row mb-3">
+                            <label asp-for="ConfirmPassword" class="col-sm-4 col-form-label">
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                                @if (ViewData.ModelState["ConfirmPassword"]?.Errors.Count > 0)
+                                {
+                                    <span class="text-danger">*</span>
+                                }
+                            </label>
+                            <div class="col-sm-8">
+                                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <button type="submit" class="btn btn-dark mx-2">Register</button>
+                            <button type="button" class="btn btn-dark mx-2">Cancel</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+ 
+</div>
+
+
+
+

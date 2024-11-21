@@ -1,0 +1,91 @@
+﻿@using LMSProjectAUTH.Application.ViewModel.Cards
+@using LMSProjectAUTH.Application.ViewModel.LibrarianDB
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@model LibrarianStatisticVM
+
+<div class="card m-2">
+    <div class="card-header m-2">
+        <h2 class=" mt-3">Librarian Dashboard</h2>
+    </div>
+
+    <div class="card-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Borrowed Books",
+                        Value = @Model.BorrowedBooks,
+                        Icon = "fluent:book-clock-24-filled" ,
+                        // Icon = "solar:users-group-rounded-bold-duotone",
+                        BackgroundColor = "bg-success-subtle"
+                    }
+
+                             )
+                </div>
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Unborrowed Books",
+                        Value = @Model.UnBorrowedBooks,
+                        BackgroundColor = "bg-info-subtle",
+                        Icon = "basil:book - open - solid"
+                    })
+
+                </div>
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Delayed Books",
+                        Value = @Model.DelayedBook,
+                        BackgroundColor = "bg-danger-subtle",
+                        Icon = "si:warning-fill"
+                    })
+
+                </div>
+
+                
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Total Books",
+                        Value = @Model.Bookstotal,
+                        Icon = "mingcute:book-5-fill",
+                        // Icon = "solar:users-group-rounded-bold-duotone",
+                        BackgroundColor = "bg-primary-subtle"
+                    }
+
+                             )
+                </div>
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Total Copies",
+                        Value = @Model.BookCopiesstotal,
+                        BackgroundColor = "bg-warning-subtle",
+                        Icon = "si:warning-fill"
+                    })
+
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

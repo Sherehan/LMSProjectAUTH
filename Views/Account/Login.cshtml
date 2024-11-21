@@ -1,0 +1,46 @@
+﻿@model LoginViewModel
+
+<div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <!-- Logo -->
+    <div class="text-center mb-4">
+        <a class="d-flex justify-content-center">
+            <img src="~/images/LMSLogo.png" alt="LMS Logo" width="50%" />
+        </a>
+    </div>
+
+    <!-- Login Form -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <!-- Title -->
+                <h3 class="text-center mb-4">Login</h3>
+
+                <!-- Login Form -->
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label asp-for="UserName" class="form-label">Username:</label>
+                        <input class="form-control" asp-for="UserName" type="text" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Password:</label>
+                        <input class="form-control" asp-for="Password" type="password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <!-- Remember me checkbox -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" asp-for="RememberMe">
+                        <label class="form-check-label text-dark" asp-for="RememberMe">
+                            Remember Me
+                        </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-dark w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

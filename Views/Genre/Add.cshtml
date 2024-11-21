@@ -1,0 +1,61 @@
+﻿@model AddGenreVM
+
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<div class="card m-2">
+    <div class="card-header m-2">
+        <div class="row">
+            <div class="col">
+                <h2 class="mt-3">Add Genre</h2>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="card-body">
+        <div class="row">
+
+            <form asp-action="Add">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <div class="col-4">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    @* <span asp-validation-for="Name" class="text-danger"></span> *@
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-dark" />
+                    <a asp-action="Index" class="btn btn-dark">Cancel</a>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    @* <div class="card-footer text-body-secondary">
+    <div class="col d-flex justify-content-end">
+
+    </div>
+    </div> *@
+</div>
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

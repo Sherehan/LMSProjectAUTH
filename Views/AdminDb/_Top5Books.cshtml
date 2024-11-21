@@ -1,0 +1,47 @@
+﻿@using LMSProjectAUTH.Application.ViewModel.AdminDB
+@using LMSProjectAUTH.Application.ViewModel.Book;
+@model IEnumerable<TopBorrowedBooks>
+
+
+<div class="card w-100 overflow-hidden">
+    <div class="card-body pb-0">
+        <h4 class="fs-4 mb-1 card-title">Popular Books</h4>
+        <hr />
+    </div>
+    @* <div data-simplebar class="position-relative" style="max-height: 600px; overflow-y: auto;"> *@
+        <div class="table-responsive products-tabel" >
+            @* <table class="table text-nowrap mb-0 align-middle table-hover"> *@
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th style="font-weight: 1000 "></th>
+                    <th style="font-weight: 1000 ">Title</th>
+                    <th style="font-weight: 1000 ">Author</th>
+                    <th style="font-weight: 1000 ">Total Numbers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                        <tr>
+                            <td>
+                                @if (book.BookPhoto != null)
+                                {
+                                    <img src="data:image/png;base64,@Convert.ToBase64String(book.BookPhoto)"
+                                         alt="Book Photo" width="60" height="60" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
+                            <td>@book.Title</td>
+                            <td>@book.Author</td>
+                            <td>@book.BorrowedBookCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    @* </div> *@
+</div>

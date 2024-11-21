@@ -1,0 +1,64 @@
+﻿@using LMSProjectAUTH.Application.ViewModel.Cards
+@model CardViewModel
+
+
+
+
+
+<div class="col-lg-10">
+    <div class="card @Model.BackgroundColor shadow-none w-100">
+        <div class="card-body p-2">
+            <!-- Title -->
+            <div>
+                <h6 class="row align-items-center justify-content-center mt-2 fs-6 text-center">
+                    @Model.Title
+                </h6>
+            </div>
+
+            <!-- Icon and Value -->
+            <div class="row align-items-center justify-content-center">
+                <!-- Icon -->
+                <div class="col-2 d-flex align-items-center justify-content-center">
+                    <div class="rounded-circle-shape @Model.BackgroundColor px-3 py-2 rounded-pill d-inline-flex align-items-center justify-content-center">
+                        <iconify-icon icon="@Model.Icon" class="fs-10 text-black"></iconify-icon>
+                    </div>
+                </div>
+
+                <!-- Value -->
+                <div class="col-6 text-center">
+                    <h2 class="fs-8 mb-0">
+                        @Model.Value
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@* <div class="col-lg-10">
+    <div class="card @Model.BackgroundColor shadow-none w-100 " >
+        <div class="card-body">
+            <div class="d-flex mb-10 pb-1 justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-6">
+                    <div class="rounded-circle-shape @Model.BackgroundColor
+                        px-3 py-2 rounded-pill d-inline-flex align-items-center justify-content-center">
+                        <iconify-icon icon="@Model.Icon"
+                                      class="fs-10 text-black">   </iconify-icon>
+                    </div>
+                    <h6 class="mb-0 fs-4 fw-medium text-muted text-center">
+                        @Model.Title
+                    </h6>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center mt-3">
+                <div class="col-12 text-center">
+                    <h2 class="mb-6 fs-10">
+                        @Model.Value
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@

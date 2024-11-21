@@ -1,0 +1,53 @@
+﻿@using LMSProjectAUTH.Application.ViewModel.Cards
+@model MemberStatisticVM
+
+<div class="card m-2">
+    <div class="card-header m-2">
+        <h2 class=" mt-3">Member Dashboard</h2>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4">
+                    @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Borrowed Books",
+                        Value = @Model.TotalBorrowsBookTillNow,
+                        Icon = "mingcute:book-5-fill",
+                        // Icon = "solar:users-group-rounded-bold-duotone",
+                        BackgroundColor = "bg-info-subtle"
+                    }
+
+                             ) 
+                </div>
+                <div class="col-4">
+                     @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Delayed Books",
+                        Value = @Model.DelayedBook,
+                        BackgroundColor = "bg-danger-subtle",
+                        Icon = "si:warning-fill"
+                    })
+
+                </div>
+
+                <div class="col-4">
+                     @Html.Partial("_CardPartial",
+                             new CardViewModel
+                    {
+                        Title = "Score %",
+                        Value = @Model.Score,
+                        BackgroundColor = "bg-success-subtle",
+                        Icon = "fa-solid:percentage"
+                    }) 
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+</div>
